@@ -1,0 +1,71 @@
+<div class="containerPaciente">
+  <div fxLayout="row" fxLayoutAlign="center" class="menuComponent">
+    <button [matMenuTriggerFor]="menu1" mat-button>Médico</button>
+    <mat-menu #menu1="matMenu">
+      <button mat-menu-item [routerLink]="['/medicos']">Listagem de Médicos</button>
+      <button mat-menu-item [routerLink]="['/cadastrarMedicos']">Cadastrar Médico</button>
+    </mat-menu>
+    <button [matMenuTriggerFor]="menu2" mat-button>Pacientes</button>
+    <mat-menu #menu2="matMenu">
+      <button mat-menu-item [routerLink]="['/pacientes']">Listagem de Pacientes</button>
+      <button mat-menu-item [routerLink]="['/cadastrarPacientes']">Cadastrar Paciente</button>
+    </mat-menu>
+    <button mat-button [routerLink]="['/consultas']">Consultas</button>
+    <button mat-button [routerLink]="['/cadastrarConsultas']">Agendamento</button>
+  </div>
+
+  <div fxLayout="column" fxLayoutAlign="center" fxLayoutGap="10px" class="listagemPacientes">
+    <mat-card class="listagem"><mat-card-title   align="center">Listagem de Pacientes</mat-card-title></mat-card>
+    <table  mat-table [dataSource]="pacientes" >
+
+      <ng-container  matColumnDef="nome">
+        <th bgcolor="#02040a" *matHeaderCellDef> Nome</th>
+        <td bgcolor="#faebd7" mat-cell *matCellDef="let paciente"> {{paciente.nome | maiusculo}} </td>
+      </ng-container>
+
+      <ng-container  matColumnDef="dataDeNascimento">
+        <th bgcolor="#02040a" *matHeaderCellDef> Data de Nascimento</th>
+        <td bgcolor="#c4c4c4"  mat-cell *matCellDef="let paciente"> {{paciente.dataDeNascimento | date:'dd/MM/yyyy':'UTC' }} </td>
+      </ng-container>
+
+      <ng-container  matColumnDef="cpf">
+        <th bgcolor="#02040a" *matHeaderCellDef> CPF</th>
+        <td bgcolor="#c4c4c4"  mat-cell *matCellDef="let paciente"> {{paciente.cpf | cpf}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="telefone">
+        <th bgcolor="#02040a" *matHeaderCellDef> Telefone </th>
+        <td bgcolor="#c4c4c4"  mat-cell *matCellDef="let paciente"> {{paciente.telefone | telefone}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th bgcolor="#02040a" *matHeaderCellDef> Email </th>
+        <td bgcolor="#c4c4c4"  mat-cell *matCellDef="let paciente"> {{paciente.email}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="sexo">
+        <th bgcolor="#02040a" *matHeaderCellDef> Sexo </th>
+        <td  bgcolor="#c4c4c4"  mat-cell *matCellDef="let paciente"> {{paciente.sexo}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="endereco">
+        <th bgcolor="#02040a" *matHeaderCellDef> Endereço </th>
+        <td bgcolor="#c4c4c4"  mat-cell *matCellDef="let paciente"> {{paciente.endereco | maiusculo}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="opções">
+        <th bgcolor="#02040a" *matHeaderCellDef> Opções</th>
+        <td bgcolor="#c4c4c4"  mat-cell  *matCellDef="let paciente">
+          <!-- <button  mat-icon-button ><mat-icon>calendar_month</mat-icon></button> -->
+          <button  mat-icon-button (click)="editar(paciente)"><mat-icon>create</mat-icon></button>
+          <button mat-icon-button (click)="remover(paciente)"><mat-icon>delete</mat-icon></button>
+
+        </td>
+
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </div>
+</div>

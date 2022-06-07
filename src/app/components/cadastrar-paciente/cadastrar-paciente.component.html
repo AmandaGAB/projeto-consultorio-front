@@ -1,0 +1,89 @@
+
+  <div class="menu">
+    <div class="main-content">
+      <div fxLayout="row" fxLayoutAlign="center" class="menuComponent">
+        <button [matMenuTriggerFor]="menu1" mat-button>Médico</button>
+        <mat-menu #menu1="matMenu">
+          <button mat-menu-item [routerLink]="['/medicos']">Listagem de Médicos</button>
+          <button mat-menu-item [routerLink]="['/cadastrarMedicos']">Cadastrar Médico</button>
+        </mat-menu>
+        <button [matMenuTriggerFor]="menu2" mat-button>Pacientes</button>
+        <mat-menu #menu2="matMenu">
+          <button mat-menu-item [routerLink]="['/pacientes']">Listagem de Pacientes</button>
+          <button mat-menu-item [routerLink]="['/cadastrarPacientes']">Cadastrar Paciente</button>
+        </mat-menu>
+        <button mat-button [routerLink]="['/consultas']">Consultas</button>
+        <button mat-button [routerLink]="['/cadastrarConsultas']">Agendamento</button>
+      </div>
+    </div>
+
+
+    <div id="main">
+      <mat-card class="example-card">
+        <!--    fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around center"-->
+        <h2 class="texto_label titulo-login">Inserir Paciente</h2>
+
+        <!--Inicio do Form>-->
+        <mat-card-content >
+          <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="texto_label">Nome</mat-label>
+              <input autocomplete="on" name="nome" [(ngModel)]="paciente.nome" matInput placeholder="Digite o seu nome completo">
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="texto_label">CPF</mat-label>
+              <input [ngModel]="paciente.cpf | cpf" 
+              (ngModelChange)="paciente.cpf=$event" type="text"  autocomplete="on" name="cpf"  matInput placeholder="digite seu CPF">
+            </mat-form-field>
+
+
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="texto_label">Data de Nascimento</mat-label>
+              <input [formControl]="data" autocomplete="on"  name="Data de Nascimento" type="date"  [(ngModel)]="paciente.dataDeNascimento" matInput  placeholder="Digite sua data de nascimento"value="">
+              <mat-error *ngIf="data.invalid">{{getErrorMessageData()}}</mat-error>
+            </mat-form-field>
+
+
+            <!---Sexo-->
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label  class="texto_label">Sexo</mat-label>
+  
+              <mat-select [(ngModel)]="paciente.sexo" [ngModelOptions]="{standalone: true}">
+                <mat-option selected *ngFor="let name of sexoPacientes" [value]="name">{{name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+
+            <!--Telefone-->
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="texto_label">Telefone</mat-label>
+              <input autocomplete="on" name="telefone" type="text" [(ngModel)]="paciente.telefone" matInput  placeholder="Digite seu Telefone"value="" >
+            </mat-form-field>
+
+            <!--E-mail-->
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="texto_label">Email</mat-label>
+              <input [formControl]="email" autocomplete="on" name="email" type="text"[(ngModel)]="paciente.email" matInput placeholder="Digite seu E-mail" value="">
+              <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
+            </mat-form-field>
+
+            <!--Endereco-->
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label class="texto_label">Endereco</mat-label>
+              <input autocomplete="on" name="endereco" type="text"[(ngModel)]="paciente.endereco" matInput placeholder="Digite seu Endereço" value="">
+              
+            </mat-form-field>
+
+          </form>
+        </mat-card-content>
+
+        <mat-card-actions>
+          <button mat-raised-button mat-icon-button color="blue" id="but" (click)="inserirPaciente()">
+            <mat-icon *ngIf="operacaoCadastro">person_add</mat-icon>
+            <mat-icon *ngIf="!operacaoCadastro">edit</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+

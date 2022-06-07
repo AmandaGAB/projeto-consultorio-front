@@ -1,0 +1,67 @@
+
+<div class="menu">
+  <div class="main-content">
+    <div fxLayout="row" fxLayoutAlign="center" class="menuComponent">
+      <button [matMenuTriggerFor]="menu1" mat-button>Médico</button>
+      <mat-menu #menu1="matMenu">
+        <button mat-menu-item [routerLink]="['/medicos']">Listagem de Médicos</button>
+        <button mat-menu-item [routerLink]="['/cadastrarMedicos']">Cadastrar Médico</button>
+      </mat-menu>
+      <button [matMenuTriggerFor]="menu2" mat-button>Pacientes</button>
+      <mat-menu #menu2="matMenu">
+        <button mat-menu-item [routerLink]="['/pacientes']">Listagem de Pacientes</button>
+        <button mat-menu-item [routerLink]="['/cadastrarPacientes']">Cadastrar Paciente</button>
+      </mat-menu>
+      <button mat-button [routerLink]="['/consultas']">Consultas</button>
+      <button mat-button [routerLink]="['/cadastrarConsultas']">Agendamento</button>
+    </div>
+
+  </div>
+
+
+  <div id="main">
+
+    <mat-card class="example-card">
+      <!--    fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around center"-->
+      <h2 class="texto_azul titulo-login">Inserir Consulta</h2>
+
+      <!--Inicio do Form>-->
+      <mat-card-content >
+        <form class="example-form">
+
+          <!----- INSERIR MEDICO ---->
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="texto_azul">Medicos</mat-label>
+            <mat-select [(ngModel)]="consulta.medicoId" [ngModelOptions]="{standalone: true}">
+              <mat-option selected *ngFor="let name of medicos" [value]="name.id">{{name.nome | maiusculo}} - {{name.especialidade}}</mat-option>
+              <!--              <option autocomplete="on" name="especialidade" type="text"[(ngModel)]="medico.especialidade" matInput placeholder="Digite sua especialidade" value="">-->
+            </mat-select>
+          </mat-form-field>
+
+        <!----- INSERIR PACIENTE ---->
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="texto_azul">Pacientes</mat-label>
+            <mat-select [(ngModel)]="consulta.pacienteId" [ngModelOptions]="{standalone: true}">
+              <mat-option class="fontcolor" selected *ngFor="let name of pacientes" [value]="name.id">{{name.nome}}</mat-option>
+              <!--              <option autocomplete="on" name="especialidade" type="text"[(ngModel)]="medico.especialidade" matInput placeholder="Digite sua especialidade" value="">-->
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label class="texto_label">Data da Consulta</mat-label>
+            <input  autocomplete="on"  name="Data da Consulta" type="date"  [(ngModel)]="consulta.dataConsulta" matInput  placeholder="Digite data da consulta"value="">
+          </mat-form-field>
+
+        </form>
+
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button mat-icon-button color="blue" id="but" (click)="salvar()">
+          <mat-icon >save</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+

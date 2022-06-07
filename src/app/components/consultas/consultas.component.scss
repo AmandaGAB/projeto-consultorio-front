@@ -1,0 +1,86 @@
+
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  align-items: flex-start;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+#search{
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+#search1{
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.menu{
+  background-color: #141e27;
+
+}
+
+
+.menuComponent{
+
+  background-color: #141e27;
+  width: 100%;
+  height: 15vh;
+  color: white;
+
+}
+button{
+  border-radius: 10px;
+}
+.listagem{
+  background-color: #141e27;
+  text-align: center;
+
+}
+.listagemMedicos{
+
+  height: auto;
+  text-align: center;
+
+
+}
+mat-card{
+  color: white;
+  background: rgba(2, 4, 10, 0.64);
+  margin-top: 10px;
+
+}
+.mat-card mat-focus-indicator listagem{
+  margin-top: 10px;
+
+}
+.containerMedico{
+  height: 100vh;
+  background-color: #141e27;
+
+
+}
+th{
+  color: white;
+  font-family: "Arial";
+  font-weight: lighter;
+}
+.mat-cell{
+  color: black;
+}
+
+.info {
+  background: #2196F3;
+}
+.success {
+  background: #1DE9B6;
+}
+.error {
+  background: #B00020;
+}

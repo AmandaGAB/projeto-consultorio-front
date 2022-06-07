@@ -1,0 +1,72 @@
+
+<div class="menu">
+
+    <div fxLayout="row" fxLayoutAlign="center" class="menuComponent">
+      <button [matMenuTriggerFor]="menu1" mat-button>Médico</button>
+      <mat-menu #menu1="matMenu">
+        <button mat-menu-item [routerLink]="['/medicos']">Listagem de Médicos</button>
+        <button mat-menu-item [routerLink]="['/cadastrarMedicos']">Cadastrar Médico</button>
+      </mat-menu>
+      <button [matMenuTriggerFor]="menu2" mat-button>Pacientes</button>
+      <mat-menu #menu2="matMenu">
+        <button mat-menu-item [routerLink]="['/pacientes']">Listagem de Pacientes</button>
+        <button mat-menu-item [routerLink]="['/cadastrarPacientes']">Cadastrar Paciente</button>
+      </mat-menu>
+      <button mat-button [routerLink]="['/consultas']">Consultas</button>
+      <button mat-button [routerLink]="['/cadastrarConsultas']">Agendamento</button>
+    </div>
+
+</div>
+<div class="containerMedico">
+
+  <div fxLayout="column" fxLayoutAlign="center"  fxLayoutGap="10px" class="listagemMedicos">
+    <mat-card fxLayout="column" fxLayoutAlign="center" class="listagem"><mat-card-title >Listagem de Médicos</mat-card-title></mat-card>
+    <table  mat-table [dataSource]="medicos" >
+
+      <ng-container  matColumnDef="crm">
+        <th bgcolor="#02040a"  *matHeaderCellDef> CRM</th>
+        <td bgcolor="#c4c4c4" mat-cell *matCellDef="let medico"> {{medico.crm}} </td>
+      </ng-container>
+
+      <ng-container  matColumnDef="nome">
+        <th bgcolor="#02040a" *matHeaderCellDef> Nome</th>
+        <td bgcolor="#faebd7" mat-cell *matCellDef="let medico"> {{medico.nome | maiusculo}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="especialidade">
+        <th bgcolor="#02040a"  *matHeaderCellDef> Especialidade </th>
+        <td bgcolor="#c4c4c4"  mat-cell *matCellDef="let medico"> {{medico.especialidade}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="telefone">
+        <th bgcolor="#02040a"  *matHeaderCellDef> Telefone </th>
+        <td bgcolor="#c4c4c4"  mat-cell *matCellDef="let medico"> {{medico.telefone | telefone}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th bgcolor="#02040a"  *matHeaderCellDef> Email </th>
+        <td bgcolor="#c4c4c4"  mat-cell *matCellDef="let medico"> {{medico.email}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Agenda">
+        <th bgcolor="#02040a"  *matHeaderCellDef> Email </th>
+        <td bgcolor="#c4c4c4"  mat-cell *matCellDef="let medico"> {{medico.agenda}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="opções">
+        <th bgcolor="#02040a" *matHeaderCellDef> Opções</th>
+        <td bgcolor="#c4c4c4"  mat-cell  *matCellDef="let medico">
+
+         <button  mat-icon-button (click)="editar(medico)"><mat-icon>create</mat-icon></button>
+          <button mat-icon-button (click)="remover(medico)"><mat-icon>delete</mat-icon></button>
+
+        </td>
+
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </div>
+</div>
+

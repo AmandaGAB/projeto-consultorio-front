@@ -1,0 +1,120 @@
+<div class="menu">
+
+  <div fxLayout="row" fxLayoutAlign="center" class="menuComponent">
+    <button [matMenuTriggerFor]="menu1" mat-button>Médico</button>
+    <mat-menu #menu1="matMenu">
+      <button mat-menu-item [routerLink]="['/medicos']">Listagem de Médicos</button>
+      <button mat-menu-item [routerLink]="['/cadastrarMedicos']">Cadastrar Médico</button>
+    </mat-menu>
+    <button [matMenuTriggerFor]="menu2" mat-button>Pacientes</button>
+    <mat-menu #menu2="matMenu">
+      <button mat-menu-item [routerLink]="['/pacientes']">Listagem de Pacientes</button>
+      <button mat-menu-item [routerLink]="['/cadastrarPacientes']">Cadastrar Paciente</button>
+    </mat-menu>
+    <button mat-button [routerLink]="['/consultas']">Consultas</button>
+    <button mat-button [routerLink]="['/cadastrarConsultas']">Agendamento</button>
+  </div>
+
+</div>
+
+
+
+
+<div class="containerMedico">
+
+  <div>
+    <div ng-controller="PageController">
+      <mat-tab-group animationDuration="0ms" headerPosition="below" mat-align-tabs="end">
+
+        <mat-tab color="white" label="Médico">
+          <div fxLayout="column" fxLayoutAlign="center"  fxLayoutGap="10px" class="listagemMedicos" >
+          <mat-card fxLayout="column" fxLayoutAlign="center"  class="listagem"><mat-card-title >Listagem Consultas por Médico</mat-card-title></mat-card>
+
+            <mat-form-field id="search">
+              <mat-label>Filtro</mat-label>
+              <input matInput placeholder="filtre por qualquer valor" (keyup)="filtrar(inputFiltro.value) " #inputFiltro >
+              <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+
+          <table  mat-table [dataSource]="consultas" ngModel="let usuario of usuarios | filter:filter; let i = index" >
+            <ng-container  matColumnDef="idConsulta">
+              <th bgcolor="#02040a"  *matHeaderCellDef> Número da Consulta</th>
+              <td mat-cell *matCellDef="let consulta"> {{consulta.idConsulta}} </td>
+            </ng-container>
+            <ng-container  matColumnDef="dataConsulta">
+              <th bgcolor="#02040a"  *matHeaderCellDef> Data da Consulta</th>
+              <td bgcolor="#c4c4c4" *matCellDef="let consulta"> {{consulta.dataConsulta}} </td>
+            </ng-container>
+            <ng-container  matColumnDef="especialidade">
+              <th bgcolor="#02040a"  *matHeaderCellDef> Especialidade</th>
+              <td bgcolor="#c4c4c4" *matCellDef="let consulta"> {{consulta.especialidade}} </td>
+            </ng-container>
+            <ng-container  matColumnDef="nomeMedico">
+              <th bgcolor="#02040a"  *matHeaderCellDef> Nome do Médico</th>
+              <td bgcolor="#c4c4c4" *matCellDef="let consulta"> {{consulta.nomeMedico}} </td>
+            </ng-container>
+            <ng-container  matColumnDef="nomePaciente">
+              <th bgcolor="#02040a"  *matHeaderCellDef> Nome do Paciente</th>
+              <td bgcolor="#c4c4c4" *matCellDef="let consulta"> {{consulta.nomePaciente}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="opções">-->
+              <th bgcolor="#02040a" *matHeaderCellDef> Opções</th>
+              <td bgcolor="#faebd7" mat-cell  *matCellDef="let consulta">
+                <button  mat-icon-button (click)="editar(consulta)"><mat-icon>calendar_month</mat-icon></button>
+                <button mat-icon-button (click)="remover(consulta.idConsulta)"><mat-icon>delete</mat-icon></button>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+        </mat-tab>
+
+  <!--      Segunda Listagem  -->
+          <mat-tab label="Paciente">
+            <div fxLayout="column" fxLayoutAlign="center"  fxLayoutGap="10px" class="listagemMedicos" >
+            <mat-card fxLayout="column" fxLayoutAlign="center" class="listagem"><mat-card-title >Listagem de Consultas por Paciente</mat-card-title></mat-card>
+              <mat-form-field id="search1">
+                <mat-label>Filtro</mat-label>
+                <input matInput placeholder="filtre por qualquer valor" (keyup)="filtrar1(inputFiltro1.value) " #inputFiltro1 >
+                <mat-icon matSuffix>search</mat-icon>
+
+              </mat-form-field>
+            <table  mat-table [dataSource]="consultas"ngModel="let usuario of usuarios | filter:filter; let i = index" >
+              <ng-container  matColumnDef="idConsulta">
+                <th bgcolor="#02040a"  *matHeaderCellDef> Número da Consulta</th>
+                <td mat-cell *matCellDef="let consulta"> {{consulta.idConsulta}} </td>
+              </ng-container>
+              <ng-container  matColumnDef="dataConsulta">
+                <th bgcolor="#02040a"  *matHeaderCellDef> Data da Consulta</th>
+                <td bgcolor="#c4c4c4" *matCellDef="let consulta"> {{consulta.dataConsulta}} </td>
+              </ng-container>
+              <ng-container  matColumnDef="especialidade">
+                <th bgcolor="#02040a"  *matHeaderCellDef> Especialidade </th>
+                <td bgcolor="#c4c4c4" *matCellDef="let consulta"> {{consulta.especialidade}} </td>
+              </ng-container>
+              <ng-container  matColumnDef="nomePaciente">
+                <th bgcolor="#02040a"  *matHeaderCellDef> Nome do Paciente</th>
+                <td bgcolor="#c4c4c4" *matCellDef="let consulta"> {{consulta.nomePaciente}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="opções">-->
+                <th bgcolor="#02040a" *matHeaderCellDef> Opções</th>
+                <td bgcolor="#faebd7" mat-cell  *matCellDef="let consulta">
+                  <button  mat-icon-button (click)="editar(consulta)"><mat-icon>calendar_month</mat-icon></button>
+                  <button mat-icon-button (click)="remover(consulta.idConsulta)"><mat-icon>delete</mat-icon></button>
+
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+            </table>
+          </div>
+          </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>
