@@ -4,7 +4,7 @@ import {MedicoService} from "../../services/medico.service";
 import {Medico} from "../../model/Medico";
 import {Especialidade} from "../../model/Especialidade";
 import {MensagensService} from "../../services/mensagens.service";
-import { UntypedFormControl, Validators } from '@angular/forms';
+import { Validators } from '@angular/forms';
 import { TokenService } from 'src/app/services/token-storage.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class CadastrarMedicoComponent implements OnInit {
   operacaoCadastro = true;
   conditionalOperator = Especialidade;
   especialidades: string[];
-  email = new UntypedFormControl('', [Validators.required, Validators.email]);
+
   constructor(private  MedicoService: MedicoService, private rotaAtual: ActivatedRoute, private roteador: Router,
               private mensagemService: MensagensService, private tokenService: TokenService) {
     this.medico = new Medico();
@@ -55,13 +55,13 @@ export class CadastrarMedicoComponent implements OnInit {
 
 
   }
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'Você deve inserir um email válido';
-    }
-
-    return this.email.hasError('email') ? 'Não é um email válido' : '';
-  }
+  // getErrorMessage() {
+  //   if (this.email.hasError('required')) {
+  //     return 'Você deve inserir um email válido';
+  //   }
+  //
+  //   return this.email.hasError('email') ? 'Não é um email válido' : '';
+  // }
   logout(): void {
     this.roteador.navigate([''])
     this.tokenService.removeToken();
