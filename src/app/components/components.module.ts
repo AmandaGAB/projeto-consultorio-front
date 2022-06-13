@@ -10,7 +10,6 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
-import {FlexLayoutModule} from "@angular/flex-layout";
 import { CadastrarMedicoComponent } from './cadastrar-medico/cadastrar-medico.component';
 import { CadastrarPacienteComponent } from './cadastrar-paciente/cadastrar-paciente.component';
 import {RouterModule} from "@angular/router";
@@ -56,7 +55,6 @@ import { CadastrarUsuarioComponent } from './cadastrar-usuario/cadastrar-usuario
         MatFormFieldModule,
         FormsModule,
         MatInputModule,
-        FlexLayoutModule,
         RouterModule,
         MatSelectModule,
         ReactiveFormsModule,
