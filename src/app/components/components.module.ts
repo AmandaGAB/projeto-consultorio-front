@@ -29,7 +29,6 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { LoginComponent } from './login/login.component'
 import {MatListModule} from '@angular/material/list';
 import { CadastrarUsuarioComponent } from './cadastrar-usuario/cadastrar-usuario.component'
-import {FlexLayoutModule} from "@angular/flex-layout";
 
 
 
@@ -67,8 +66,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
         MatRadioModule,
         MatTabsModule,
         Ng2SearchPipeModule,
-        MatListModule,
-        FlexLayoutModule,
+        MatListModule
     ],
     providers: [
       { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }
