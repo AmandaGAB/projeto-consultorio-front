@@ -5,7 +5,7 @@ import {Paciente} from "../../model/Paciente";
 import {PacienteService} from "../../services/paciente.service";
 import {MensagensService} from "../../services/mensagens.service";
 import { Sexo } from 'src/app/model/Sexo';
-import { UntypedFormControl, Validators } from '@angular/forms';
+import {  Validators } from '@angular/forms';
 import { TokenService } from 'src/app/services/token-storage.service';
 
 @Component({
@@ -18,8 +18,8 @@ export class CadastrarPacienteComponent implements OnInit {
   conditionalOperator = Sexo;
   sexoPacientes!: string[];
   operacaoCadastro = true;
-  email = new UntypedFormControl('', [Validators.required, Validators.email]);
-  data = new UntypedFormControl('', [Validators.required, Validators.nullValidator]);
+  // email = new UntypedFormControl('', [Validators.required, Validators.email]);
+  // data = new UntypedFormControl('', [Validators.required, Validators.nullValidator]);
   
   constructor(private PacienteService: PacienteService, private rotaAtual: ActivatedRoute,
               private roteador: Router, private mensagemService: MensagensService,
@@ -57,20 +57,20 @@ export class CadastrarPacienteComponent implements OnInit {
     }
 
   }
-  getErrorMessageEmail() {
-    if (this.email.hasError('required')) {
-      return 'Você deve inserir um email válido';
-    }
-
-    return this.email.hasError('email') ? 'Não é um email válido' : '';
-  }
-  getErrorMessageData() {
-    if (this.email.hasError('required')) {
-      return 'Você deve inserir uma data';
-    }
-
-    return this.email.hasError('data') ? 'Não é uma data válida' : '';
-  }
+  // getErrorMessageEmail() {
+  //   if (this.email.hasError('required')) {
+  //     return 'Você deve inserir um email válido';
+  //   }
+  //
+  //   return this.email.hasError('email') ? 'Não é um email válido' : '';
+  // }
+  // getErrorMessageData() {
+  //   if (this.email.hasError('required')) {
+  //     return 'Você deve inserir uma data';
+  //   }
+  //
+  //   return this.email.hasError('data') ? 'Não é uma data válida' : '';
+  // }
   logout(): void {
     this.roteador.navigate([''])
     this.tokenService.removeToken();
