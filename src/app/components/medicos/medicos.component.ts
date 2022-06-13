@@ -47,8 +47,9 @@ export class MedicosComponent implements OnInit {
         if(indexUsuarioParaRemover > -1) {
 
           this.medicos.splice(indexUsuarioParaRemover, 1)
+          this.mensagemService.success('Médico removido com Sucesso!');
         }
-        this.mensagemService.success('Médico removido com Sucesso!');
+
         this.ngOnInit()
       },
       error=>{
