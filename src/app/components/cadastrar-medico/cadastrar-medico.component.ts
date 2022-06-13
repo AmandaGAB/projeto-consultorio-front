@@ -4,7 +4,7 @@ import {MedicoService} from "../../services/medico.service";
 import {Medico} from "../../model/Medico";
 import {Especialidade} from "../../model/Especialidade";
 import {MensagensService} from "../../services/mensagens.service";
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 import { TokenService } from 'src/app/services/token-storage.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class CadastrarMedicoComponent implements OnInit {
   operacaoCadastro = true;
   conditionalOperator = Especialidade;
   especialidades: string[];
-  email = new FormControl('', [Validators.required, Validators.email]);
+  email = new UntypedFormControl('', [Validators.required, Validators.email]);
   constructor(private  MedicoService: MedicoService, private rotaAtual: ActivatedRoute, private roteador: Router,
               private mensagemService: MensagensService, private tokenService: TokenService) {
     this.medico = new Medico();

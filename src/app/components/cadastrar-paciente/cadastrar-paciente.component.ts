@@ -5,7 +5,7 @@ import {Paciente} from "../../model/Paciente";
 import {PacienteService} from "../../services/paciente.service";
 import {MensagensService} from "../../services/mensagens.service";
 import { Sexo } from 'src/app/model/Sexo';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 import { TokenService } from 'src/app/services/token-storage.service';
 
 @Component({
@@ -18,8 +18,8 @@ export class CadastrarPacienteComponent implements OnInit {
   conditionalOperator = Sexo;
   sexoPacientes!: string[];
   operacaoCadastro = true;
-  email = new FormControl('', [Validators.required, Validators.email]);
-  data = new FormControl('', [Validators.required, Validators.nullValidator]);
+  email = new UntypedFormControl('', [Validators.required, Validators.email]);
+  data = new UntypedFormControl('', [Validators.required, Validators.nullValidator]);
   
   constructor(private PacienteService: PacienteService, private rotaAtual: ActivatedRoute,
               private roteador: Router, private mensagemService: MensagensService,
