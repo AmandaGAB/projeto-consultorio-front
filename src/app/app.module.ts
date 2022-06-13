@@ -26,7 +26,6 @@ import {RouterModule} from "@angular/router";
     BrowserAnimationsModule,
     ComponentsModule,
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
     HttpClientModule,
@@ -35,7 +34,6 @@ import {RouterModule} from "@angular/router";
     Ng2SearchPipeModule,
     RouterModule,
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     ComponentsModule,
 
