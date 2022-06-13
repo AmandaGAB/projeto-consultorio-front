@@ -11,6 +11,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { Ng2SearchPipeModule } from "ng2-search-filter";
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { AuthGuardService } from './guards/auth-guard.service';
+import {RouterModule} from "@angular/router";
 
 
 
@@ -22,7 +23,6 @@ import { AuthGuardService } from './guards/auth-guard.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     ComponentsModule,
     BrowserModule,
@@ -33,6 +33,12 @@ import { AuthGuardService } from './guards/auth-guard.service';
     PipesModule,
     MatSnackBarModule,
     Ng2SearchPipeModule,
+    RouterModule,
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ComponentsModule,
+
   ],
   providers: [ AuthGuardService,{
     provide: HTTP_INTERCEPTORS,

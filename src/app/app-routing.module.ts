@@ -10,7 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { CadastrarUsuarioComponent } from './components/cadastrar-usuario/cadastrar-usuario.component';
-const routes: Routes = [
+const appRoutes: Routes = [
 
   {path: '', component: LoginComponent},
   {path: 'medicos', component: MedicosComponent, canActivate:[AuthGuardService]},
@@ -28,7 +28,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule, RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

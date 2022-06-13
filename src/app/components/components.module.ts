@@ -66,7 +66,7 @@ import { CadastrarUsuarioComponent } from './cadastrar-usuario/cadastrar-usuario
         MatRadioModule,
         MatTabsModule,
         Ng2SearchPipeModule,
-        MatListModule
+        MatListModule,
     ],
     providers: [
       { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }
