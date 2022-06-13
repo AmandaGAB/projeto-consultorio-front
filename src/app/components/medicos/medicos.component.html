@@ -1,7 +1,7 @@
 
 <div class="menu">
 
-    <div fxLayout="row" fxLayoutAlign="center" class="menuComponent">
+    <div  class="menuComponent">
       <button [matMenuTriggerFor]="menu1" mat-button>Médico</button>
       <mat-menu #menu1="matMenu">
         <button mat-menu-item [routerLink]="['/medicos']">Listagem de Médicos</button>
@@ -26,8 +26,8 @@
 </div>
 <div class="containerMedico">
 
-  <div fxLayout="column" fxLayoutAlign="center"  fxLayoutGap="10px" class="listagemMedicos">
-    <mat-card fxLayout="column" fxLayoutAlign="center" class="listagem"><mat-card-title >Listagem de Médicos</mat-card-title></mat-card>
+  <div  class="listagemMedicos">
+    <mat-card  class="listagem"><mat-card-title >Listagem de Médicos</mat-card-title></mat-card>
     <table  mat-table [dataSource]="medicos" >
 
       <ng-container  matColumnDef="crm">
