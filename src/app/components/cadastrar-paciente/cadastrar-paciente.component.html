@@ -46,8 +46,8 @@
 
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label class="texto_label">Data de Nascimento</mat-label>
-              <input [formControl]="data" autocomplete="on"  name="Data de Nascimento" type="date"  [(ngModel)]="paciente.dataDeNascimento" matInput  placeholder="Digite sua data de nascimento"value="">
-              <mat-error *ngIf="data.invalid">{{getErrorMessageData()}}</mat-error>
+              <input autocomplete="on"  name="Data de Nascimento" type="date"  [(ngModel)]="paciente.dataDeNascimento" matInput  placeholder="Digite sua data de nascimento"value="">
+<!--              <mat-error *ngIf="data.invalid">{{getErrorMessageData()}}</mat-error>-->
             </mat-form-field>
 
 
@@ -70,8 +70,8 @@
             <!--E-mail-->
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label class="texto_label">Email</mat-label>
-              <input [formControl]="email" autocomplete="on" name="email" type="text"[(ngModel)]="paciente.email" matInput placeholder="Digite seu E-mail" value="">
-              <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
+              <input  autocomplete="on" name="email" type="text"[(ngModel)]="paciente.email" matInput placeholder="Digite seu E-mail" value="">
+<!--              <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>-->
             </mat-form-field>
 
             <!--Endereco-->
