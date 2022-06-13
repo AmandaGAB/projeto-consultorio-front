@@ -9,7 +9,7 @@ import {Medico} from "../model/Medico";
   providedIn: 'root'
 })
 export class ConsultasService {
-  URL_CONSULTAS = 'http://localhost:8080/consultas';
+  URL_CONSULTAS = 'https://hml-projeto-deps.herokuapp.com/consultas';
   constructor(private  httpClient: HttpClient) {
 
   }

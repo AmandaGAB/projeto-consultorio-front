@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import { MensagensService } from 'src/app/services/mensagens.service';
+import { TokenService } from 'src/app/services/token-storage.service';
 import {Paciente} from "../../model/Paciente";
 import {PacienteService} from "../../services/paciente.service";
 
@@ -16,7 +17,9 @@ export class PacientesComponent implements OnInit {
   displayedColumns: string[] = [
     'nome', 'dataDeNascimento', 'cpf', 'telefone', 'email', 'sexo', 'endereco', 'opções'];
 
-  constructor(private PacienteService: PacienteService, private roteador: Router, private mensagemService: MensagensService) {
+  constructor(private PacienteService: PacienteService, private roteador: Router,
+              private mensagemService: MensagensService,
+              private tokenService: TokenService) {
 
   }
 
@@ -26,7 +29,6 @@ export class PacientesComponent implements OnInit {
       p => this.pacientes = p
 
     )
-    console.log(this.pacientes);
 
   }
 
@@ -58,5 +60,9 @@ export class PacientesComponent implements OnInit {
     )
 
   }
-
+  logout(): void {
+    this.roteador.navigate([''])
+    this.tokenService.removeToken();
+    this.mensagemService.error('Você saiu da sessão!');
+  }
 }

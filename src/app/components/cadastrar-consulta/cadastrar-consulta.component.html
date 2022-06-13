@@ -14,6 +14,13 @@
       </mat-menu>
       <button mat-button [routerLink]="['/consultas']">Consultas</button>
       <button mat-button [routerLink]="['/cadastrarConsultas']">Agendamento</button>
+      <button [matMenuTriggerFor]="menu3" mat-button>Usuários</button>
+      <mat-menu #menu3="matMenu">
+        <button mat-menu-item [routerLink]="['/usuarios']">Listagem de Usuarios</button>
+        <button mat-menu-item [routerLink]="['/cadastrarUsuarios']">Cadastrar Usuário</button>
+      </mat-menu>
+      <button  (click)="logout()"  mat-button>Sair <mat-icon>logout</mat-icon></button>
+      <button   mat-button [routerLink]="['']"  mat-button>Inicio <mat-icon>home</mat-icon></button>
     </div>
 
   </div>

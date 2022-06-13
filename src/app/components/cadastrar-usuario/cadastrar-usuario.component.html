@@ -1,0 +1,69 @@
+
+<div >
+    <div fxLayout="row" fxLayoutAlign="center" class="menuComponent">
+        <button [matMenuTriggerFor]="menu1" mat-button>Médico</button>
+        <mat-menu #menu1="matMenu">
+            <button mat-menu-item [routerLink]="['/medicos']">Listagem de Médicos</button>
+            <button mat-menu-item [routerLink]="['/cadastrarMedicos']">Cadastrar Médico</button>
+        </mat-menu>
+        <button [matMenuTriggerFor]="menu2" mat-button>Pacientes</button>
+        <mat-menu #menu2="matMenu">
+            <button mat-menu-item [routerLink]="['/pacientes']">Listagem de Pacientes</button>
+            <button mat-menu-item [routerLink]="['/cadastrarPacientes']">Cadastrar Paciente</button>
+        </mat-menu>
+        <button mat-button [routerLink]="['/consultas']">Consultas</button>
+        <button mat-button [routerLink]="['/cadastrarConsultas']">Agendamento</button>
+        <button [matMenuTriggerFor]="menu3" mat-button>Usuários</button>
+        <mat-menu #menu3="matMenu">
+            <button mat-menu-item [routerLink]="['/usuarios']">Listagem de Usuarios</button>
+            <button mat-menu-item [routerLink]="['/cadastrarUsuarios']">Cadastrar Usuário</button>
+        </mat-menu>
+        <button  (click)="logout()"  mat-button>Sair <mat-icon>logout</mat-icon></button>
+        <button   mat-button [routerLink]="['']" mat-button>Inicio <mat-icon>home</mat-icon></button>
+    </div>
+    <div id="main">
+        <mat-card class="example-card">
+            <!--    fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around center"-->
+            <h2 class="texto_label titulo-login">Inserir Usuario</h2>
+
+            <!--Inicio do Form>-->
+            <mat-card-content >
+                <form class="example-form">
+                    <mat-form-field class="example-full-width" id="name" appearance="fill">
+                        <mat-label  class="texto_label">Nome</mat-label>
+                        <input autocomplete="on" name="nome" [(ngModel)]="usuario.nome" matInput placeholder="digite o nome do usuário">
+
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label  class="texto_label">Usuario</mat-label>
+                        <input autocomplete="on" name="username" type="text"  [(ngModel)]="usuario.username" matInput  placeholder="Digite o username"value="">
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label  class="texto_label">Senha</mat-label>
+                        <input autocomplete="on" name="password"  type="password"  [(ngModel)]="usuario.password" matInput  placeholder="Digite uma senha"value="">
+                    </mat-form-field>
+
+                        <div *ngIf="operacaoCadastro" style="padding: 10px">
+                            <mat-label  class="texto_label">Permissão de usuário</mat-label>
+                            <mat-radio-group aria-label="Selecione uma opção" [(ngModel)]="usuario.admin" name="admin">
+                                <div></div>
+                                <mat-radio-button value="usuario.admin" [value]="true">Sim</mat-radio-button>
+                                <div></div>
+                                <mat-radio-button value="usuario.admin" [value]="false">Não</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+
+                </form>
+            </mat-card-content>
+
+            <mat-card-actions>
+                <button mat-raised-button mat-icon-button id="but" (click)="inserirUsuario()">
+                    <mat-icon *ngIf="operacaoCadastro">person_add</mat-icon>
+                    <mat-icon *ngIf="!operacaoCadastro">edit</mat-icon>
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

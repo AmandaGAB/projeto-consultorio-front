@@ -14,6 +14,13 @@
       </mat-menu>
       <button mat-button [routerLink]="['/consultas']">Consultas</button>
       <button mat-button [routerLink]="['/cadastrarConsultas']">Agendamento</button>
+      <button [matMenuTriggerFor]="menu3" mat-button>Usuários</button>
+      <mat-menu #menu3="matMenu">
+        <button mat-menu-item [routerLink]="['/usuarios']">Listagem de Usuarios</button>
+        <button mat-menu-item [routerLink]="['/cadastrarUsuarios']">Cadastrar Usuário</button>
+      </mat-menu>
+      <button  (click)="logout()"  mat-button>Sair <mat-icon>logout</mat-icon></button>
+      <button  mat-button [routerLink]="['']">Inicio <mat-icon>home</mat-icon></button>
     </div>
 
 </div>
@@ -49,7 +56,7 @@
       </ng-container>
 
       <ng-container matColumnDef="Agenda">
-        <th bgcolor="#02040a"  *matHeaderCellDef> Email </th>
+        <th bgcolor="#02040a"  *matHeaderCellDef> Agenda </th>
         <td bgcolor="#c4c4c4"  mat-cell *matCellDef="let medico"> {{medico.agenda}} </td>
       </ng-container>
 

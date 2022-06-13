@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 import {MedicoService} from "../../services/medico.service";
 import {Medico} from "../../model/Medico";
 import {MensagensService} from "../../services/mensagens.service";
+import { TokenService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-medicos',
@@ -10,22 +11,24 @@ import {MensagensService} from "../../services/mensagens.service";
   styleUrls: ['./medicos.component.scss']
 })
 export class MedicosComponent implements OnInit {
-
+  currentUser: any;
   medicos = Array<Medico>();
 
   displayedColumns: string[] = ['nome', 'crm',  'especialidade', 'telefone', 'email', 'opções'];
 
-  constructor(private MedicoService: MedicoService, private roteador: Router, private mensagemService: MensagensService) {
+  constructor(private MedicoService: MedicoService, private roteador: Router,
+              private mensagemService: MensagensService,
+              private token: TokenService) {
 
   }
 
   ngOnInit(): void {
+    this.currentUser = this.token.getToken();
     this.MedicoService.listar().subscribe(
 
       p => this.medicos = p
 
     )
-    console.log(this.medicos);
 
   }
   editar(medico: Medico): void {
@@ -58,5 +61,9 @@ export class MedicosComponent implements OnInit {
     )
 
   }
-
+  logout(): void {
+    this.roteador.navigate([''])
+    this.token.removeToken();
+    this.mensagemService.error('Você saiu da sessão!');
+  }
 }

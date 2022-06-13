@@ -5,6 +5,7 @@ import {Medico} from "../../model/Medico";
 import {Especialidade} from "../../model/Especialidade";
 import {MensagensService} from "../../services/mensagens.service";
 import { FormControl, Validators } from '@angular/forms';
+import { TokenService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-cadastrar-medico',
@@ -18,7 +19,7 @@ export class CadastrarMedicoComponent implements OnInit {
   especialidades: string[];
   email = new FormControl('', [Validators.required, Validators.email]);
   constructor(private  MedicoService: MedicoService, private rotaAtual: ActivatedRoute, private roteador: Router,
-              private mensagemService: MensagensService) {
+              private mensagemService: MensagensService, private tokenService: TokenService) {
     this.medico = new Medico();
     this.especialidades = Object.keys(this.conditionalOperator);
     if(this.rotaAtual.snapshot.paramMap.has('id')) {
@@ -61,5 +62,9 @@ export class CadastrarMedicoComponent implements OnInit {
 
     return this.email.hasError('email') ? 'Não é um email válido' : '';
   }
-
+  logout(): void {
+    this.roteador.navigate([''])
+    this.tokenService.removeToken();
+    this.mensagemService.error('Você saiu da sessão!');
+  }
 }

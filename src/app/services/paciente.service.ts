@@ -8,7 +8,7 @@ import {Paciente} from "../model/Paciente";
   providedIn: 'root'
 })
 export class PacienteService {
-  URL_PACIENTES = 'http://localhost:8080/pacientes';
+  URL_PACIENTES = 'https://hml-projeto-deps.herokuapp.com/pacientes';
 
   constructor(private  httpClient: HttpClient) {
 

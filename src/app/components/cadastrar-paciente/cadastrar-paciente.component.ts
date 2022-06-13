@@ -6,6 +6,7 @@ import {PacienteService} from "../../services/paciente.service";
 import {MensagensService} from "../../services/mensagens.service";
 import { Sexo } from 'src/app/model/Sexo';
 import { FormControl, Validators } from '@angular/forms';
+import { TokenService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-cadastrar-paciente',
@@ -21,7 +22,8 @@ export class CadastrarPacienteComponent implements OnInit {
   data = new FormControl('', [Validators.required, Validators.nullValidator]);
   
   constructor(private PacienteService: PacienteService, private rotaAtual: ActivatedRoute,
-              private roteador: Router, private mensagemService: MensagensService) {
+              private roteador: Router, private mensagemService: MensagensService,
+              private tokenService: TokenService) {
     this.paciente = new Paciente();
     this.sexoPacientes = Object.keys(this.conditionalOperator);
     if (this.rotaAtual.snapshot.paramMap.has('id')) {
@@ -68,5 +70,10 @@ export class CadastrarPacienteComponent implements OnInit {
     }
 
     return this.email.hasError('data') ? 'Não é uma data válida' : '';
+  }
+  logout(): void {
+    this.roteador.navigate([''])
+    this.tokenService.removeToken();
+    this.mensagemService.error('Você saiu da sessão!');
   }
 }

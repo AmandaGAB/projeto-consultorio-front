@@ -10,6 +10,7 @@ import {DatePipe, formatDate} from "@angular/common";
 import {MAT_DATE_FORMATS} from "@angular/material/core";
 import {MensagensService} from "../../services/mensagens.service";
 import { ActivatedRoute, Router } from '@angular/router';
+import { TokenService } from 'src/app/services/token-storage.service';
 
 
 @Component({
@@ -27,7 +28,7 @@ export class CadastrarConsultaComponent implements OnInit {
   operacaoCadastro = true;
   constructor(private MedicoService: MedicoService, private rotaAtual: ActivatedRoute, private  PacienteService: PacienteService,
               private ConsultaService: ConsultasService, private mensagemService: MensagensService,
-              private roteador: Router) {
+              private roteador: Router, private tokenService: TokenService) {
                 if(this.rotaAtual.snapshot.paramMap.has('id')) {
                   this.operacaoCadastro = false;
                   const idParaEdicao = Number(this.rotaAtual.snapshot.paramMap.get('id'));
@@ -72,6 +73,11 @@ export class CadastrarConsultaComponent implements OnInit {
       
       } 
       
+  }
+  logout(): void {
+    this.roteador.navigate([''])
+    this.tokenService.removeToken();
+    this.mensagemService.error('Você saiu da sessão!');
   }
 }
  

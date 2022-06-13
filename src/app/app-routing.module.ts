@@ -6,17 +6,25 @@ import {CadastrarPacienteComponent} from "./components/cadastrar-paciente/cadast
 import {PacientesComponent} from "./components/pacientes/pacientes.component";
 import {CadastrarConsultaComponent} from "./components/cadastrar-consulta/cadastrar-consulta.component";
 import {ConsultasComponent} from "./components/consultas/consultas.component";
-
+import { LoginComponent } from './components/login/login.component';
+import { AuthGuardService } from './guards/auth-guard.service';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { CadastrarUsuarioComponent } from './components/cadastrar-usuario/cadastrar-usuario.component';
 const routes: Routes = [
-  {path: 'medicos', component: MedicosComponent},
-  {path: 'medicos/cadastrar/:id', component: CadastrarMedicoComponent},
-  {path: 'cadastrarMedicos', component: CadastrarMedicoComponent},
-  {path: 'pacientes/cadastrar/:id', component: CadastrarPacienteComponent},
-  {path: 'cadastrarPacientes', component: CadastrarPacienteComponent},
-  {path: 'pacientes', component: PacientesComponent},
-  {path: 'consultas/cadastrar/:id', component: CadastrarConsultaComponent},
-  {path: 'cadastrarConsultas', component: CadastrarConsultaComponent},
-  {path: 'consultas', component: ConsultasComponent}
+
+  {path: '', component: LoginComponent},
+  {path: 'medicos', component: MedicosComponent, canActivate:[AuthGuardService]},
+  {path: 'medicos/cadastrar/:id', component: CadastrarMedicoComponent, canActivate:[AuthGuardService]},
+  {path: 'cadastrarMedicos', component: CadastrarMedicoComponent, canActivate:[AuthGuardService]},
+  {path: 'pacientes/cadastrar/:id', component: CadastrarPacienteComponent, canActivate:[AuthGuardService]},
+  {path: 'cadastrarPacientes', component: CadastrarPacienteComponent, canActivate:[AuthGuardService]},
+  {path: 'pacientes', component: PacientesComponent, canActivate:[AuthGuardService]},
+  {path: 'consultas/cadastrar/:id', component: CadastrarConsultaComponent, canActivate:[AuthGuardService]},
+  {path: 'cadastrarConsultas', component: CadastrarConsultaComponent, canActivate:[AuthGuardService]},
+  {path: 'consultas', component: ConsultasComponent, canActivate:[AuthGuardService]},
+  {path: 'usuarios/cadastrar/:id', component: CadastrarUsuarioComponent, canActivate:[AuthGuardService]},
+  {path: 'cadastrarUsuarios', component: CadastrarUsuarioComponent, canActivate:[AuthGuardService]},
+  {path: 'usuarios', component: UsuariosComponent},
 ];
 
 @NgModule({

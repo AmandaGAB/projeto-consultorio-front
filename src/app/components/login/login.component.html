@@ -1,0 +1,40 @@
+<div class="menu-up">
+    <mat-list class="menu">
+        <mat-list-item>
+            <button mat-raised-button [matMenuTriggerFor]="menu"><mat-icon>info</mat-icon> Info</button>
+            <mat-menu #menu="matMenu">
+                <button   mat-flat-button >Saiba Mais</button>
+            </mat-menu>
+
+        </mat-list-item>
+
+        <button class="button-menu" [routerLink]="'medicos'" mat-icon-button><mat-icon>home</mat-icon></button>
+        <button *ngIf="!operacaoCadastro" class="button-menu" (click)="logout()" mat-icon-button><mat-icon>logout</mat-icon></button>
+    </mat-list>
+
+</div>
+
+<div id="main">
+    <mat-card class="example-card">
+
+        <h2 class="texto_azul titulo-login">FAÇA SEU LOGIN</h2>
+        <mat-card-content>
+            <form class="example-form">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label class="texto_azul">Usuário</mat-label>
+                    <input name="username" [(ngModel)]="creds.username" matInput type="text" placeholder="Digite o seu username" value="" autocomplete="on">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label class="texto_azul">Senha</mat-label>
+                    <input type="password" name="password" [(ngModel)]="creds.password" matInput value="" autocomplete="on">
+                </mat-form-field>
+            </form>
+
+        </mat-card-content>
+        <mat-card-actions>
+            <button class="main-button" (click)="login()" mat-button>LOGIN</button>
+
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -25,7 +25,11 @@ import { ConsultasComponent } from './consultas/consultas.component';
 import {MatRadioModule} from "@angular/material/radio";
 import {MatTabsModule} from "@angular/material/tabs";
 import {Ng2SearchPipeModule} from "ng2-search-filter";
-import { MAT_DATE_LOCALE } from '@angular/material/core'
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { LoginComponent } from './login/login.component'
+import {MatListModule} from '@angular/material/list';
+import { CadastrarUsuarioComponent } from './cadastrar-usuario/cadastrar-usuario.component'
 
 
 
@@ -37,7 +41,10 @@ import { MAT_DATE_LOCALE } from '@angular/material/core'
     CadastrarMedicoComponent,
     CadastrarPacienteComponent,
     CadastrarConsultaComponent,
-    ConsultasComponent
+    ConsultasComponent,
+    UsuariosComponent,
+    LoginComponent,
+    CadastrarUsuarioComponent
   ],
     imports: [
         CommonModule,
@@ -60,7 +67,8 @@ import { MAT_DATE_LOCALE } from '@angular/material/core'
         MatDividerModule,
         MatRadioModule,
         MatTabsModule,
-        Ng2SearchPipeModule
+        Ng2SearchPipeModule,
+        MatListModule
     ],
     providers: [
       { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }

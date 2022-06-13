@@ -6,6 +6,7 @@ import {ConsultasService} from "../../services/consultas.service"
 import {Paciente} from "../../model/Paciente";
 import {Medico} from "../../model/Medico";
 import {MatTableDataSource} from "@angular/material/table";
+import { TokenService } from 'src/app/services/token-storage.service';
 
 
 @Component({
@@ -25,7 +26,8 @@ export class ConsultasComponent implements OnInit {
   displayedColumns: string[] = ['idConsulta', 'dataConsulta', 'especialidade', 'nomeMedico', 'opções'];
   displayedColumns2: string[] = ['idConsulta', 'dataConsulta', 'especialidade', 'nomePaciente', 'opções'];
 
-  constructor(private ConsultasService: ConsultasService, private roteador: Router, private mensagemService: MensagensService) {
+  constructor(private ConsultasService: ConsultasService, private roteador: Router,
+              private mensagemService: MensagensService, private tokenService: TokenService) {
 
   }
 
@@ -34,7 +36,7 @@ export class ConsultasComponent implements OnInit {
       consultas => this.consultas = new MatTableDataSource<Consulta>(consultas)
       //p => this.consultas = p
     )
-    console.log(this.consultas);
+    // console.log(this.consultas);
 
   }
 
@@ -68,6 +70,11 @@ export class ConsultasComponent implements OnInit {
   
     this.roteador.navigate(['consultas/cadastrar', consulta.idConsulta])
   
+  }
+  logout(): void {
+    this.roteador.navigate([''])
+    this.tokenService.removeToken();
+    this.mensagemService.error('Você saiu da sessão!');
   }
 }
 

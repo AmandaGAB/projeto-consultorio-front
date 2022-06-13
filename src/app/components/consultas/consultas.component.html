@@ -13,6 +13,13 @@
     </mat-menu>
     <button mat-button [routerLink]="['/consultas']">Consultas</button>
     <button mat-button [routerLink]="['/cadastrarConsultas']">Agendamento</button>
+    <button [matMenuTriggerFor]="menu3" mat-button>Usuários</button>
+    <mat-menu #menu3="matMenu">
+      <button mat-menu-item [routerLink]="['/usuarios']">Listagem de Usuarios</button>
+      <button mat-menu-item [routerLink]="['/cadastrarUsuarios']">Cadastrar Usuário</button>
+    </mat-menu>
+    <button  (click)="logout()"  mat-button>Sair <mat-icon>logout</mat-icon></button>
+    <button    mat-button [routerLink]="['']"  mat-button>Inicio <mat-icon>home</mat-icon></button>
   </div>
 
 </div>
@@ -36,7 +43,7 @@
               <mat-icon matSuffix>search</mat-icon>
             </mat-form-field>
 
-          <table  mat-table [dataSource]="consultas" ngModel="let usuario of usuarios | filter:filter; let i = index" >
+          <table ngDefaultControl mat-table [dataSource]="consultas" ngModel="let usuario of usuarios | filter:filter; let i = index" >
             <ng-container  matColumnDef="idConsulta">
               <th bgcolor="#02040a"  *matHeaderCellDef> Número da Consulta</th>
               <td mat-cell *matCellDef="let consulta"> {{consulta.idConsulta}} </td>
@@ -76,13 +83,13 @@
           <mat-tab label="Paciente">
             <div fxLayout="column" fxLayoutAlign="center"  fxLayoutGap="10px" class="listagemMedicos" >
             <mat-card fxLayout="column" fxLayoutAlign="center" class="listagem"><mat-card-title >Listagem de Consultas por Paciente</mat-card-title></mat-card>
-              <mat-form-field id="search1">
+              <mat-form-field id="search1" >
                 <mat-label>Filtro</mat-label>
                 <input matInput placeholder="filtre por qualquer valor" (keyup)="filtrar1(inputFiltro1.value) " #inputFiltro1 >
                 <mat-icon matSuffix>search</mat-icon>
 
               </mat-form-field>
-            <table  mat-table [dataSource]="consultas"ngModel="let usuario of usuarios | filter:filter; let i = index" >
+            <table ngDefaultControl mat-table [dataSource]="consultas"ngModel="let usuario of usuarios | filter:filter; let i = index" >
               <ng-container  matColumnDef="idConsulta">
                 <th bgcolor="#02040a"  *matHeaderCellDef> Número da Consulta</th>
                 <td mat-cell *matCellDef="let consulta"> {{consulta.idConsulta}} </td>

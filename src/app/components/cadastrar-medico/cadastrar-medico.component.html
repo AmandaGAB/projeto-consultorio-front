@@ -13,66 +13,14 @@
       </mat-menu>
       <button mat-button [routerLink]="['/consultas']">Consultas</button>
       <button mat-button [routerLink]="['/cadastrarConsultas']">Agendamento</button>
+      <button [matMenuTriggerFor]="menu3" mat-button>Usuários</button>
+      <mat-menu #menu3="matMenu">
+        <button mat-menu-item [routerLink]="['/usuarios']">Listagem de Usuarios</button>
+        <button mat-menu-item [routerLink]="['/cadastrarUsuarios']">Cadastrar Usuário</button>
+      </mat-menu>
+      <button  (click)="logout()"  mat-button>Sair <mat-icon>logout</mat-icon></button>
+      <button    mat-button [routerLink]="['']"  mat-button>Inicio <mat-icon>home</mat-icon></button>
     </div>
-
-
-
-  <!--  <mat-card  class="mainContent">-->
-  <!--  <mat-card-header class="mainContent" fxLayout="row wrap"  fxLayoutAlign="space-around center" >-->
-  <!--    <mat-card-title >Inserir Medico</mat-card-title>-->
-  <!--  </mat-card-header>-->
-  <!--  <mat-card-content class="form-medico">-->
-
-  <!--    <div fxLayout="row wrap"  fxLayoutAlign="space-around center"  >-->
-  <!--      <div>-->
-  <!--        <p >-->
-  <!--          <mat-form-field appearance="fill" class="mat-form-simples">-->
-  <!--            <mat-label>CRM</mat-label>-->
-  <!--            <input matInput [(ngModel)]="medico.crm" placeholder="digite o crm">-->
-
-  <!--          </mat-form-field>-->
-  <!--        </p>-->
-
-  <!--        <p >-->
-  <!--          <mat-form-field appearance="fill" class="mat-form-simples">-->
-  <!--            <mat-label>Nome</mat-label>-->
-  <!--            <input matInput [(ngModel)]="medico.nome" placeholder="dinggite o nome">-->
-  <!--          </mat-form-field>-->
-  <!--        </p>-->
-  <!--      </div>-->
-  <!--      <div>-->
-  <!--        <p>-->
-  <!--          <mat-form-field appearance="fill" class="mat-form-simples">-->
-  <!--            <mat-label>Especialidade</mat-label>-->
-  <!--            <input  matInput [(ngModel)]="medico.especialidade" placeholder="digite a especialidade">-->
-  <!--          </mat-form-field>-->
-  <!--        </p>-->
-
-  <!--        <p>-->
-  <!--          <mat-form-field appearance="fill" class="mat-form-simples">-->
-  <!--            <mat-label>Telefone</mat-label>-->
-  <!--            <input matInput [(ngModel)]="medico.telefone" placeholder="Digite o telefone">-->
-  <!--          </mat-form-field>-->
-  <!--        </p>-->
-  <!--      </div>-->
-  <!--      <p>-->
-  <!--        <mat-form-field appearance="fill" class="mat-form-simples">-->
-  <!--          <mat-label>Email</mat-label>-->
-  <!--          <input matInput [(ngModel)]="medico.email" placeholder="Digite o email">-->
-  <!--        </mat-form-field>-->
-  <!--      </p>-->
-  <!--    </div>-->
-  <!--  </mat-card-content>-->
-  <!--  <mat-card-footer align="center">-->
-
-  <!--    <button mat-raised-button mat-icon-button color="primary" (click)="inserirMedico()">-->
-  <!--      <mat-icon *ngIf="operacaoCadastro">person_add</mat-icon>-->
-  <!--      <mat-icon *ngIf="!operacaoCadastro">edit</mat-icon>-->
-  <!--    </button>-->
-
-  <!--  </mat-card-footer>-->
-  <!--</mat-card>-->
-  <!--</div>-->
 
   <div id="main">
     <mat-card class="example-card">
