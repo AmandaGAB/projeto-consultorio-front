@@ -4,9 +4,9 @@ const path = require('path');
 
 const app = express();
 
-app.use(express.static(__dirname + '/dist/consultorio-front'));
+app.use(express.static('./dist/consultorio-front'));
 app.get('/*', (req, res) =>{
-    res.sendFile(path.join(__dirname + '/dist/consultorio-front'));
+    res.sendFile(('./dist/consultorio-front'));
 })
 
 // // Serve only the static files form the dist directory
