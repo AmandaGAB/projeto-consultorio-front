@@ -32,7 +32,7 @@
 
       <ng-container  matColumnDef="dataDeNascimento">
         <th bgcolor="#02040a" *matHeaderCellDef> Data de Nascimento</th>
-        <td bgcolor="#c4c4c4"  mat-cell *matCellDef="let paciente"> {{paciente.dataDeNascimento | date:'dd/MM/yyyy':'UTC' }} </td>
+        <td bgcolor="#c4c4c4"  mat-cell *matCellDef="let paciente"> {{paciente.dataDeNascimento | date:'yyyy/MM/dd':'UTC' }} </td>
       </ng-container>
 
       <ng-container  matColumnDef="cpf">
