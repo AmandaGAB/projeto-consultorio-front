@@ -43,17 +43,19 @@ export class CadastrarPacienteComponent implements OnInit {
 
     if (this.paciente.id) {
       this.PacienteService.atualizar(this.paciente).subscribe(paciente => {
-        this.mensagemService.success('Dados alterados com Sucesso!');
-        this.roteador.navigate(['pacientes']);
-      })
 
+        this.roteador.navigate(['pacientes']);
+        this.mensagemService.success('Dados alterados com Sucesso!');
+      })
+      this.mensagemService.success('Dados alterados com Sucesso!');
     } else {
       this.PacienteService.inserir(this.paciente).subscribe(paciente => {
-        this.mensagemService.success('Paciente cadastrado com Sucesso!');
+
         this.roteador.navigate(['pacientes']);
+        this.mensagemService.success('Paciente cadastrado com Sucesso!');
       })
       this.paciente = new Paciente();
-
+      this.mensagemService.success('Paciente cadastrado com Sucesso!');
     }
 
   }
