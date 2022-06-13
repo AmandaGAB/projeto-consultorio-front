@@ -1,6 +1,6 @@
 <div class="menu">
 
-  <div class="menuComponent">
+  <div fxLayout="row" fxLayoutAlign="center" class="menuComponent">
     <button [matMenuTriggerFor]="menu1" mat-button>Médico</button>
     <mat-menu #menu1="matMenu">
       <button mat-menu-item [routerLink]="['/medicos']">Listagem de Médicos</button>
@@ -34,8 +34,8 @@
       <mat-tab-group animationDuration="0ms" headerPosition="below" mat-align-tabs="end">
 
         <mat-tab color="white" label="Médico">
-          <div  class="listagemMedicos" >
-          <mat-card  class="listagem"><mat-card-title >Listagem Consultas por Médico</mat-card-title></mat-card>
+          <div fxLayout="column" fxLayoutAlign="center"  fxLayoutGap="10px" class="listagemMedicos" >
+          <mat-card fxLayout="column" fxLayoutAlign="center" class="listagem"><mat-card-title >Listagem Consultas por Médico</mat-card-title></mat-card>
 
             <mat-form-field id="search">
               <mat-label>Filtro</mat-label>
@@ -81,8 +81,8 @@
 
   <!--      Segunda Listagem  -->
           <mat-tab label="Paciente">
-            <div class="listagemMedicos" >
-            <mat-card class="listagem"><mat-card-title >Listagem de Consultas por Paciente</mat-card-title></mat-card>
+            <div fxLayout="column" fxLayoutAlign="center"  fxLayoutGap="10px" class="listagemMedicos" >
+            <mat-card fxLayout="column" fxLayoutAlign="center" class="listagem"><mat-card-title >Listagem de Consultas por Paciente</mat-card-title></mat-card>
               <mat-form-field id="search1" >
                 <mat-label>Filtro</mat-label>
                 <input matInput placeholder="filtre por qualquer valor" (keyup)="filtrar1(inputFiltro1.value) " #inputFiltro1 >
