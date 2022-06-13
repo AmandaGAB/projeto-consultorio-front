@@ -61,7 +61,6 @@ export class MedicosComponent implements OnInit {
       }
 
     )
-    this.mensagemService.success('Médico removido com Sucesso!');
   }
   logout(): void {
     this.roteador.navigate([''])
