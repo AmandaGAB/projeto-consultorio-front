@@ -4,8 +4,8 @@ const path = require('path');
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'dist','Projeto-Consultorio-Front-2.0'));
-res.sendFile(path.join(__dirname,'dist','Projeto-Consultorio-Front-2.0','index.html'));
+app.use(express.static(path.join(__dirname, 'DEPS','Projeto-Consultorio-Front-2.0'));
+res.sendFile(path.join(__dirname,'DEPS','Projeto-Consultorio-Front-2.0','index.html'));
 // // Serve only the static files form the dist directory
 // app.use(express.static('./dist/Projeto-Consultorio-Front-2.0'));
 //
