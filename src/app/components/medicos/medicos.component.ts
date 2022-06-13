@@ -57,7 +57,7 @@ export class MedicosComponent implements OnInit {
 
         this.ngOnInit()
 
-        // this.mensagemService.error("Não foi possível fazer a operação com ID informado")
+
       }
 
     )

@@ -47,6 +47,7 @@ export class PacientesComponent implements OnInit {
         if(indexUsuarioParaRemover > -1) {
 
           this.pacientes.splice(indexUsuarioParaRemover, 1)
+          this.mensagemService.success('Paciente removido com Sucesso!');
           this.ngOnInit()
 
 
@@ -55,6 +56,7 @@ export class PacientesComponent implements OnInit {
       },
       error=>{
         this.mensagemService.error("Não é possivel remover pacientes com consultas cadastradas")
+        this.ngOnInit()
       }
 
     )
