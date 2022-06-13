@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ComponentsModule} from "./components/components.module";
 import {MatIconModule} from "@angular/material/icon";
 import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
-import {FlexLayoutModule} from "@angular/flex-layout";
 import {PipesModule} from "./pipes/pipes.module";
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { Ng2SearchPipeModule } from "ng2-search-filter";
@@ -31,7 +30,6 @@ import { AuthGuardService } from './guards/auth-guard.service';
     BrowserAnimationsModule,
     MatIconModule,
     HttpClientModule,
-    FlexLayoutModule,
     PipesModule,
     MatSnackBarModule,
     Ng2SearchPipeModule,
