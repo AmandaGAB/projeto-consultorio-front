@@ -71,7 +71,7 @@ export class ConsultasComponent implements OnInit {
       }
 
     )
-    this.mensagemService.success('Consulta removida com Sucessoo!');
+    this.mensagemService.error('Não foi possível apagar a consulta!')
     this.roteador.navigate(['consultas']);
     this.ngOnInit()
   }
