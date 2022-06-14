@@ -57,14 +57,17 @@ export class ConsultasComponent implements OnInit {
         if (indx > -1) {
           this.consultas.data.splice(indx, 1)
           this.consultas = new MatTableDataSource(this.consultas.data)
+          this.mensagemService.success('Consulta removida com Sucesso!');
         }
-        this.mensagemService.success('Consulta removida com Sucesso!');
+
         
       },
       error=>{
-        this.mensagemService.error('Não é possível cancelar uma consulta passada!')
+        this.mensagemService.error('Não foi possível apagar a consulta!')
       }
+
     )
+    this.mensagemService.success('Consulta removida com Sucesso!');
   }
   editar(consulta: Consulta): void {
   
