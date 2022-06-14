@@ -57,20 +57,23 @@ export class ConsultasComponent implements OnInit {
         if (indx > -1) {
           this.consultas.data.splice(indx, 1)
           this.consultas = new MatTableDataSource(this.consultas.data)
-          this.mensagemService.success('Consulta removida com Sucesso!');
+          // this.mensagemService.success('Consulta removida com Sucesso!');
           this.roteador.navigate(['consultas']);
+          this.ngOnInit()
         }
 
-        
+        this.ngOnInit()
       },
       error=>{
         this.roteador.navigate(['consultas']);
         // this.mensagemService.error('Não foi possível apagar a consulta!')
+        this.ngOnInit()
       }
 
     )
-    this.mensagemService.success('Consulta removida com Sucesso!');
+    this.mensagemService.success('Consulta removida com Sucessoo!');
     this.roteador.navigate(['consultas']);
+    this.ngOnInit()
   }
   editar(consulta: Consulta): void {
   
