@@ -48,6 +48,7 @@ export class CadastrarPacienteComponent implements OnInit {
         this.mensagemService.success('Dados alterados com Sucesso!');
       })
       this.mensagemService.success('Dados alterados com Sucesso!');
+      this.roteador.navigate(['pacientes']);
     } else {
       this.PacienteService.inserir(this.paciente).subscribe(paciente => {
         this.mensagemService.success('Paciente cadastrado com Sucesso!');
