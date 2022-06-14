@@ -71,9 +71,10 @@ export class ConsultasComponent implements OnInit {
       }
 
     )
+    this.ngOnInit()
     this.mensagemService.error('Não foi possível apagar a consulta!')
     this.roteador.navigate(['consultas']);
-    this.ngOnInit()
+
   }
   editar(consulta: Consulta): void {
   
