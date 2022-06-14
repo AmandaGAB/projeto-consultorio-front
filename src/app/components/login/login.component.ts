@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
       else{ this.operacaoCadastro = false;}
   }
   login(){
-    console.log(this.creds)
 
     this.auth.login(this.creds).subscribe(response=>{
 
