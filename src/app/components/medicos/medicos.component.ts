@@ -62,7 +62,7 @@ export class MedicosComponent implements OnInit {
       }
 
     )
-    this.mensagemService.error("Não foi possível fazer a operação com ID informadoo")
+    // this.mensagemService.error("Não foi possível fazer a operação com ID informadoo")
   }
   logout(): void {
     this.roteador.navigate([''])
