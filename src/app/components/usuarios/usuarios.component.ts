@@ -41,12 +41,13 @@ export class UsuariosComponent implements OnInit {
             this.usuarios.splice(indexUsuarioParaRemover, 1)
             this.mensagemService.success('Usuario removido!');
             this.roteador.navigate(['usuarios']);
+            this.ngOnInit()
 
           }
-
+          this.ngOnInit()
         }
     )
-
+    this.ngOnInit()
   }
   logout(): void {
     this.roteador.navigate([''])
