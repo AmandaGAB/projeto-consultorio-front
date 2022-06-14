@@ -57,7 +57,7 @@ export class ConsultasComponent implements OnInit {
         if (indx > -1) {
           this.consultas.data.splice(indx, 1)
           this.consultas = new MatTableDataSource(this.consultas.data)
-          this.mensagemService.success('Consulta removida com Sucesso!');
+          // this.mensagemService.success('Consulta removida com Sucesso!');
         }
 
         
