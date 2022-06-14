@@ -59,6 +59,9 @@ export class MedicosComponent implements OnInit {
                 break
           case 404: this.mensagemService.error("Não foi possível fazer a operação com ID informado")
                 break
+          case 500:
+            this.mensagemService.error("Não foi possível fazer a operação com ID informado")
+
         }
         // this.mensagemService.error("Não foi possível fazer a operação com ID informado")
 
