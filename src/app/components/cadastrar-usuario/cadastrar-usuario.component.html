@@ -45,8 +45,8 @@
                         <input autocomplete="on" name="password"  type="password"  [(ngModel)]="usuario.password" matInput  placeholder="Digite uma senha"value="">
                     </mat-form-field>
 
-                        <div *ngIf="operacaoCadastro" style="padding: 10px">
-                            <mat-label  class="texto_label">Permissão de usuário</mat-label>
+                        <div style="padding: 10px">
+                            <mat-label  class="texto_label">Permissão de Administrador?</mat-label>
                             <mat-radio-group aria-label="Selecione uma opção" [(ngModel)]="usuario.admin" name="admin">
                                 <div></div>
                                 <mat-radio-button value="usuario.admin" [value]="true">Sim</mat-radio-button>
