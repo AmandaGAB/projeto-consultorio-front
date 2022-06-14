@@ -51,10 +51,11 @@ export class PacientesComponent implements OnInit {
 
 
         }
+        this.mensagemService.success('Paciente removido com Sucesso!');
         this.ngOnInit()
       },
       error=>{
-        this.mensagemService.success('Paciente removido com Sucesso!');
+        // this.mensagemService.success('Paciente removido com Sucesso!');
         this.ngOnInit()
       }
 
