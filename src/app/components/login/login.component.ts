@@ -36,12 +36,16 @@ export class LoginComponent implements OnInit {
   }
   login(){
 
-    this.auth.login(this.creds).subscribe(response=>{
+    this.auth.login(this.creds).subscribe(
+        response=>{
 
         if  ( response.access_token!==null){
             this.operacaoCadastro = true;
             this.mensagemService.success('Login realizado com sucesso!');
             this.router.navigate(['medicos']);
+        }
+        else{
+            this.mensagemService.error("Não foi possível realizar o login. Tente Novamente!")
         }
         },
         error=>{
@@ -56,6 +60,7 @@ export class LoginComponent implements OnInit {
                     this.mensagemService.error("Não foi possível realizar o login. Tente Novamente!")
                     break
             }
+            this.ngOnInit()
         })
 
   }
