@@ -44,9 +44,10 @@ export class LoginComponent implements OnInit {
             this.mensagemService.success('Login realizado com sucesso!');
             this.router.navigate(['medicos']);
         }
-        if( response.access_token==null){
-            this.mensagemService.error("Não foi possível realizar o login. Tente Novamente!")
-        }
+        // else{
+        //
+        //     this.mensagemService.error("Não foi possível realizar o login. Tente Novamente!")
+        // }
         },
         error=>{
             switch(error.status) {
