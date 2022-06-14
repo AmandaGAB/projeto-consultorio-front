@@ -62,17 +62,19 @@ export class MedicosComponent implements OnInit {
                 break
           case 500:
             this.mensagemService.error("Não foi possível fazer a operação com ID informado")
+                break
+
 
         }
         // this.mensagemService.error("Não foi possível fazer a operação com ID informado")
 
-        // this.ngOnInit()
+        this.ngOnInit()
 
 
       }
 
     )
-
+    this.mensagemService.success('Médico removido com Sucesso!');
   }
   logout(): void {
     this.roteador.navigate([''])
