@@ -44,10 +44,24 @@ export class UsuariosComponent implements OnInit {
             this.roteador.navigate(['usuarios']);
 
           }
+          this.mensagemService.success('Usuario removido!');
           this.ngOnInit()
+        },
+        error=>{
+          switch(error.status) {
+            case 400:
+              this.mensagemService.error("Não foi possível remover. Tente novamente")
+              break
+            case 404:
+              this.mensagemService.error("Não foi possível remover. Tente novamente")
+              break
+            case 500:
+              this.mensagemService.error("Não foi possível fazer a operação com ID informado")
+          }
         }
+
     )
-    this.ngOnInit()
+
   }
   logout(): void {
     this.roteador.navigate([''])

@@ -54,9 +54,17 @@ export class PacientesComponent implements OnInit {
         this.mensagemService.success('Paciente removido com Sucesso!');
         this.ngOnInit()
       },
-      error=>{
-        // this.mensagemService.success('Paciente removido com Sucesso!');
-        this.ngOnInit()
+        error=>{
+          switch(error.status) {
+            case 400:
+              this.mensagemService.error("Não foi possível remover. Tente novamente")
+              break
+            case 404:
+              this.mensagemService.error("Não foi possível remover. Tente novamente")
+              break
+            case 500:
+              this.mensagemService.error("Não foi possível fazer a operação com ID informado")
+          }
       }
 
     )
