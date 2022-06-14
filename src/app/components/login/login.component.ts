@@ -44,7 +44,19 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['medicos']);
         }
         },
-        error=>{})
+        error=>{
+            switch(error.status) {
+                case 400:
+                    this.mensagemService.error("Não foi possível realizar o login. Tente Novamente!")
+                    break
+                case 404:
+                    this.mensagemService.error("Não foi possível realizar o login. Tente Novamente!")
+                    break
+                case 500:
+                    this.mensagemService.error("Não foi possível realizar o login. Tente Novamente!")
+                    break
+            }
+        })
 
   }
     logout(): void {
