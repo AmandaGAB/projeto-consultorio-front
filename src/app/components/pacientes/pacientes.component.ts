@@ -51,7 +51,7 @@ export class PacientesComponent implements OnInit {
 
 
         }
-        this.mensagemService.success('Paciente removido com Sucesso!');
+        // this.mensagemService.success('Paciente removido com Sucesso!');
         this.ngOnInit()
       },
         error=>{
@@ -64,7 +64,9 @@ export class PacientesComponent implements OnInit {
               break
             case 500:
               this.mensagemService.error("Não foi possível fazer a operação com ID informado")
+                  break
           }
+          this.ngOnInit()
       }
 
     )

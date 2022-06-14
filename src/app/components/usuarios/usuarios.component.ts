@@ -57,7 +57,9 @@ export class UsuariosComponent implements OnInit {
               break
             case 500:
               this.mensagemService.error("Não foi possível fazer a operação com ID informado")
+                  break
           }
+          this.ngOnInit()
         }
 
     )
