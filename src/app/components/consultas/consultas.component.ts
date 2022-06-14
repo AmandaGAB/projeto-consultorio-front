@@ -65,7 +65,7 @@ export class ConsultasComponent implements OnInit {
         this.ngOnInit()
       },
       error=>{
-        this.roteador.navigate(['consultas']);
+        // this.roteador.navigate(['consultas']);
         // this.mensagemService.error('Não foi possível apagar a consulta!')
         this.ngOnInit()
       }
