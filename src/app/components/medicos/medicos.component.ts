@@ -43,10 +43,11 @@ export class MedicosComponent implements OnInit {
     this.MedicoService.remover(Number(medico.id)).subscribe(
       resposta => {
         const indexUsuarioParaRemover = this.medicos.findIndex(u => u.crm === medico.crm)
-        this.mensagemService.success('Médico removido com Sucesso!');
+
         if(indexUsuarioParaRemover > -1) {
-          this.mensagemService.success('Médico removido com Sucesso!');
+
           this.medicos.splice(indexUsuarioParaRemover, 1)
+          this.mensagemService.success('Médico removido com Sucesso!');
 
         }
         this.mensagemService.success('Médico removido com Sucesso!');
@@ -65,7 +66,7 @@ export class MedicosComponent implements OnInit {
         }
         // this.mensagemService.error("Não foi possível fazer a operação com ID informado")
 
-        this.ngOnInit()
+        // this.ngOnInit()
 
 
       }

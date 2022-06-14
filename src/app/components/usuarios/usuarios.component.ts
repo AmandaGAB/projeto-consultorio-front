@@ -40,8 +40,8 @@ export class UsuariosComponent implements OnInit {
           if(indexUsuarioParaRemover > -1) {
             this.usuarios.splice(indexUsuarioParaRemover, 1)
             this.mensagemService.success('Usuario removido!');
-            this.ngOnInit()
-            this.roteador.navigate(['usuarios']);
+
+
 
           }
           this.mensagemService.success('Usuario removido!');
