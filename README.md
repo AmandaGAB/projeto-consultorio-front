@@ -2,9 +2,7 @@
 
 Frontend:
 
-Pré Requisitos: 
-
-node e angular cli
+Pré Requisitos: node e angular cli
 
 git clone https://github.com/AmandaGAB/projeto-consultorio-front
 
@@ -17,4 +15,4 @@ ng serve
 
 Back:
 
- https://github.com/wsfin64/consultorio-api/tree/develop
+https://github.com/wsfin64/consultorio-api/tree/develop
